@@ -5,11 +5,13 @@ buildscript {
     
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.github.jengelman.gradle.plugins:shadow:5.0.0"
     }
 }
 
 apply plugin: 'kotlin'
 apply plugin: 'application'
+apply plugin: "com.github.johnrengelman.shadow"
 
 group 'com.github.rcd27'
 version '0.0.1'
@@ -41,4 +43,10 @@ dependencies {
     implementation "org.jetbrains.exposed:exposed-core:0.24.1"
     implementation "org.jetbrains.exposed:exposed-dao:0.24.1"
     implementation "org.jetbrains.exposed:exposed-jdbc:0.24.1"
+}
+
+shadowJar {
+    baseName = 'ktor-test-case-0.0.1'
+    classifier = null
+    version = null
 }
