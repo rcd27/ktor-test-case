@@ -29,7 +29,7 @@ fun Application.module(testing: Boolean = false) {
   routing {
 
     post("/create/examination") {
-      val request = call.receive<CreateMedicalExaminationRequest>()
+      val request = call.receiveOrNull<CreateMedicalExaminationRequest>() ?: error("Bad request")
       val uuid = UUID.randomUUID().toString()
 
       DBMock.createdExamination = MedicalExamination(
