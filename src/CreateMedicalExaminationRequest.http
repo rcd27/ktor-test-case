@@ -1,0 +1,17 @@
+### Create medical examination
+POST http://127.0.0.1:8080/create/examination
+Content-Type: application/json
+
+{"name": "Тестовое обращение"}
+
+> {%
+client.global.set("medical_examination_id", response.body.id)
+%}
+
+### Check status of medical examinationn
+POST http://127.0.0.1:8080/status/examination
+Content-Type: application/json
+
+{
+  "id": {{medical_examination_id}}
+}
