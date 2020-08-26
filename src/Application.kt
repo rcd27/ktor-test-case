@@ -53,7 +53,7 @@ fun Application.module(testing: Boolean = false) {
             DBMock.createdExamination!!
         )
       } else {
-        call.respond(HttpStatusCode.NotFound, "Not such medical examination")
+        call.respond(HttpStatusCode.NotFound, "No such medical examination")
       }
     }
   }
